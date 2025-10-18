@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coleta Manual de Dados de Produto</title>
     <link rel="stylesheet" href="index.css"> 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -13,13 +14,11 @@
         
         <p class="description">
             **Instruções para o Analista:**<br>
-            **1.** Use a **Vitrine Visual** abaixo para **Abrir** o produto ou marcar como **Não Existe Mais**. O produto selecionado fica com uma borda azul.
+            **1.** Use a **Vitrine Visual** abaixo para identificar e **abrir o link** do produto que será analisado.
             <br>
-            **2.** Preencha o **Formulário de Coleta** com os dados **atuais**.
+            **2.** Preencha o **Formulário de Coleta** com os dados **atuais** do produto (Nome, Preço, Nota e Avaliações).
             <br>
-            **3.** Clique em **Adicionar Produto à Coleta**. Repita os passos 1 e 2.
-            <br>
-            **4.** Clique em **Finalizar Coleta e Enviar** para enviar todos os dados de uma vez.
+            **3.** Clique em **Enviar Dados**. A página irá **recarregar automaticamente** para você começar a próxima coleta.
         </p>
 
         <h2>Vitrine de Produtos para Coleta</h2>
@@ -38,12 +37,8 @@
                 required 
                 placeholder="exemplo@gmail.com"
             >
-            
-            <h3 id="contadorColetados" style="color: #007bff; margin-top: 20px;">
-                Produtos Prontos para Envio: 0
-            </h3>
 
-            <h2 id="tituloColeta">Coleta de Dados Atuais: N/A</h2> 
+            <h2>Coleta de Dados Atuais</h2>
             
             <label for="nome_produto">Nome do Produto (Completo):</label>
             <input 
@@ -53,42 +48,50 @@
                 required 
                 placeholder="Cole o nome exato da página do produto."
             >
-            
+
             <div class="field-group">
                 <div class="field-item">
                     <label for="preco_final">Preço (R$):</label>
-                    <input type="text" name="Preço de Venda Coletado" id="preco_final" required placeholder="Ex: 89,90">
+                    <input 
+                        type="text" 
+                        name="Preço de Venda Coletado" 
+                        id="preco_final" 
+                        required 
+                        placeholder="Ex: 89,90"
+                    >
                 </div>
                 <div class="field-item">
                     <label for="nota_produto">Nota do Produto (0.0 a 5.0):</label>
-                    <input type="text" name="Nota do Produto Coletada" id="nota_produto" required placeholder="Ex: 4.5">
+                    <input 
+                        type="text" 
+                        name="Nota do Produto Coletada" 
+                        id="nota_produto" 
+                        required 
+                        placeholder="Ex: 4.5"
+                    >
                 </div>
             </div>
             
             <div class="field-group">
                 <div class="field-item">
                     <label for="avaliacoes">Número de Avaliações:</label>
-                    <input type="text" name="Número de Avaliações" id="avaliacoes" required placeholder="Ex: 1200 ou 5.4k">
+                    <input 
+                        type="text" 
+                        name="Número de Avaliações" 
+                        id="avaliacoes" 
+                        required 
+                        placeholder="Ex: 1200 ou 5.4k"
+                    >
                 </div>
                 <div class="field-item">
                     </div>
             </div>
 
-            <input type="hidden" name="Produtos Coletados (JSON)" id="dadosCompletosJson">
-            
-            <input type="hidden" name="Produtos Coletados (Nomes)" id="produtosColetadosNames">
-
             <input type="hidden" name="_next" value="?success=true">
-            <input type="hidden" name="_subject" id="_subject" value="Nova Coleta de Dados de Produto Realizada (0 Itens)">
+            <input type="hidden" name="_subject" value="Nova Coleta de Dados de Produto Realizada!">
             <input type="hidden" name="_captcha" value="false">
 
-            <button type="button" id="adicionarProduto" style="background-color: #28a745;">
-                ✅ Adicionar Produto à Coleta
-            </button>
-            
-            <button type="submit" id="enviarColeta" disabled>
-                🚀 Finalizar Coleta e Enviar (0 Produtos)
-            </button>
+            <button type="submit">Finalizar e Enviar Dados</button>
         </form>
     </div>
     

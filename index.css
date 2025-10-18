@@ -6,25 +6,39 @@ body {
     color: #333;
 }
 .container {
-    max-width: 950px; /* Aumentando a largura para caber a vitrine visual */
+    max-width: 950px;
     margin: 0 auto;
     background-color: #ffffff;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
+/* Cor Principal do Título (Laranja #ff5722) */
 h1 {
-    color: #007bff;
-    border-bottom: 3px solid #007bff;
+    color: #ff5722; 
+    border-bottom: 3px solid #ff5722;
     padding-bottom: 10px;
     margin-bottom: 25px;
     text-align: center;
 }
+/* Cor Principal dos Subtítulos (Laranja #ff5722) */
 h2 {
-    color: #28a745;
+    color: #ff5722; 
     margin-top: 30px;
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
+}
+/* Cor para o Título do Produto Selecionado (Azul para estado ativo) */
+#tituloColeta {
+    color: #007bff; 
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+/* Cor para o Contador de Itens (Azul para destaque) */
+#contadorColetados {
+    color: #007bff !important;
 }
 .description {
     text-align: center;
@@ -63,24 +77,44 @@ input[type="email"], input[type="text"] {
     transition: border-color 0.3s;
 }
 input[type="email"]:focus, input[type="text"]:focus {
-    border-color: #007bff;
+    border-color: #007bff; /* Foco azul */
     outline: none;
 }
-button[type="submit"] {
+
+/* Estilos de Botões de Ação do Formulário */
+#adicionarProduto, #enviarColeta {
     display: block;
     width: 100%;
     padding: 15px;
-    margin-top: 30px;
-    background-color: #007bff;
+    margin-top: 15px;
     color: white;
     border: none;
     border-radius: 6px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-weight: bold;
 }
-button[type="submit"]:hover {
-    background-color: #0056b3;
+/* Botão de Adicionar (Verde - Ação de Sucesso) */
+#adicionarProduto {
+    background-color: #28a745; 
+}
+#adicionarProduto:hover:not(:disabled) {
+    background-color: #1e7e34;
+}
+
+/* Botão de Enviar (Laranja #ff5722 - Ação Principal) */
+#enviarColeta {
+    margin-top: 30px;
+    background-color: #ff5722; 
+}
+#enviarColeta:hover:not(:disabled) {
+    background-color: #e64a19;
+}
+
+#adicionarProduto:disabled, #enviarColeta:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
 
 /* ==================================== */
@@ -88,12 +122,12 @@ button[type="submit"]:hover {
 /* ==================================== */
 .vitrine-links {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 5 colunas em telas maiores */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 15px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    max-height: 450px; /* Limita a altura para scroll */
+    max-height: 450px;
     overflow-y: auto;
     background-color: #f9f9f9;
 }
@@ -105,7 +139,7 @@ button[type="submit"]:hover {
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
+    transition: transform 0.2s, border-color 0.2s;
     text-align: center;
 }
 .produto-card:hover {
@@ -114,8 +148,8 @@ button[type="submit"]:hover {
 }
 .produto-card img {
     width: 100%;
-    height: 100px; /* Altura fixa para as imagens */
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    height: 100px;
+    object-fit: cover;
     border-radius: 4px;
     margin-bottom: 8px;
 }
@@ -125,27 +159,90 @@ button[type="submit"]:hover {
     font-weight: 600;
     color: #333;
     overflow: hidden;
-    height: 3.2em; /* Limita o nome a 2 linhas */
+    height: 3.2em; 
     line-height: 1.6em;
 }
-.produto-card a {
+
+/* Container para alinhar os dois botões no card */
+.card-buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Estilo para o botão de Abrir/Coletar (Verde - Ação Positiva) */
+.card-button-coleta {
     text-decoration: none;
-    background-color: #28a745;
+    background-color: #28a745; 
     color: white;
     padding: 8px 5px;
     border-radius: 4px;
     font-size: 0.8em;
     font-weight: bold;
     transition: background-color 0.3s;
-    margin-top: auto; /* Empurra o botão para baixo */
+    text-align: center;
 }
-.produto-card a:hover {
+.card-button-coleta:hover {
     background-color: #1e7e34;
+}
+
+/* Estilo para o botão de Não Existe Mais (Vermelho - Ação Negativa/Alerta) */
+.card-button-nao-existe {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    padding: 8px 5px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.card-button-nao-existe:hover {
+    background-color: #c82333;
+}
+
+/* ==================================== */
+/* ESTILOS DE ESTADO (JS)               */
+/* ==================================== */
+/* 1. Produto Selecionado (Atual item de coleta - Azul) */
+.produto-card.selecionado {
+    border: 3px solid #007bff; 
+    transform: scale(1.03); 
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+/* 2. Produto Coletado (Verde) */
+.produto-card.coletado {
+    border: 3px solid #28a745; 
+    opacity: 0.7; 
+}
+.produto-card.coletado .card-button-coleta {
+    background-color: #1e7e34; 
+}
+
+/* 3. Produto Não Encontrado (Vermelho) */
+.produto-card.nao-encontrado {
+    border: 3px solid #dc3545; 
+    background-color: #fcebeb; 
+    opacity: 0.9;
+}
+.produto-card.nao-encontrado .card-button-coleta, 
+.produto-card.nao-encontrado .card-button-nao-existe {
+    background-color: #6c757d; /* Botões cinzas para indicar status resolvido */
+}
+
+/* 4. Combinação (Coletado e Selecionado) */
+.produto-card.selecionado.coletado {
+    border: 3px solid #ffc107; /* Borda amarela/laranja para indicar atualização */
+    opacity: 1; 
 }
 
 @media (max-width: 992px) {
     .vitrine-links {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); /* 4 colunas em tablets */
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     }
 }
 @media (max-width: 768px) {
@@ -153,6 +250,6 @@ button[type="submit"]:hover {
         flex-direction: column;
     }
     .vitrine-links {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 3 colunas em celulares */
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 }
