@@ -10,16 +10,23 @@
 <body>
 
     <div class="container">
-        <h1>Coleta Manual de Dados de Produto</h1>
+        <h1>Dashboard de Coleta de Dados Dinâmicos</h1>
         
-        <p class="description">1. Use a lista abaixo para **acessar** o produto. 2. Preencha o formulário com os **dados atuais** do produto.</p>
+        <p class="description">
+            **Instruções para o Analista:**<br>
+            **1.** Use a **Vitrine Visual** abaixo para identificar e **abrir o link** do produto que será analisado.
+            <br>
+            **2.** Preencha o **Formulário de Coleta** com os dados **atuais** do produto (Nome, Preço, Nota e Avaliações).
+            <br>
+            **3.** Clique em **Enviar Dados**. A página irá **recarregar automaticamente** para você começar a próxima coleta.
+        </p>
 
-        <h2>Links de Produtos para Análise</h2>
+        <h2>Vitrine de Produtos para Coleta</h2>
         <div id="linksProdutosVitrine" class="vitrine-links">
-            <p>Carregando links dos produtos...</p>
+            <p>Carregando Vitrine de Produtos...</p>
         </div>
         
-        <form id="coletaForm" action="eduardojos457@gmail.com" method="POST"> 
+        <form id="coletaForm" action="https://formsubmit.co/eduardojos457@gmail.com" method="POST"> 
             
             <h2>Sua Identificação</h2>
             <label for="email_analista">Seu Email:</label>
@@ -50,7 +57,7 @@
                         name="Preço de Venda Coletado" 
                         id="preco_final" 
                         required 
-                        placeholder="Ex: R$89,90"
+                        placeholder="Ex: 89,90"
                     >
                 </div>
                 <div class="field-item">
@@ -73,13 +80,15 @@
                         name="Número de Avaliações" 
                         id="avaliacoes" 
                         required 
-                        placeholder="Ex: 1200 Avaliações ou 5.4k Avaliações"
+                        placeholder="Ex: 1200 ou 5.4k"
                     >
                 </div>
                 <div class="field-item">
                     </div>
             </div>
 
+            <input type="hidden" name="_next" value="?success=true">
+            <input type="hidden" name="_subject" value="Nova Coleta de Dados de Produto Realizada!">
             <input type="hidden" name="_captcha" value="false">
 
             <button type="submit">Finalizar e Enviar Dados</button>
