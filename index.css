@@ -30,7 +30,7 @@ h2 {
 }
 /* Cor para o Título do Produto Selecionado (Azul para estado ativo) */
 #tituloColeta {
-    color: #007bff; 
+    color: #ff5722; 
     font-size: 1.3em;
     font-weight: 600;
     margin-top: 25px;
@@ -38,7 +38,7 @@ h2 {
 }
 /* Cor para o Contador de Itens (Azul para destaque) */
 #contadorColetados {
-    color: #007bff !important;
+    color: #ff5722 !important;
 }
 .description {
     text-align: center;
